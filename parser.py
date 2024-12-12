@@ -39,8 +39,6 @@ data_engineer_params = {
 all_params = [data_analyst_params, data_science_params, data_engineer_params] 
 
 # Массив с количеством вакансий по направлениям
-# data_analyst[0][], data_scientist[1][], data_engineers[2][]
-# в разрезах junior[][0], middle[][1], senior[][2] 
 vacancies_table = np.zeros((3, 3))
 
 # Массивы с ключевыми словами, на случай если в вакансии не указан опыт работы, но указана должность
@@ -69,8 +67,8 @@ for i in range(3):
         vacancies = hh_web_converted.find_all("h2", attrs = {'data-qa' : 'bloko-header-2'})     # Ищем блоки с названиями вакансии
 
         for p in vacancies:
-            name = p.find("span", attrs = {'class' : 'magritte-text___tkzIl_4-3-2'}).text.lower()               # Ищем название вакансии
-            experience = p.parent.find("div", attrs = {'class' : 'magritte-tag__label___YHV-o_3-0-13'}).text    # Ищем требуемый опыт
+            name = p.find("span", attrs = {'class' : 'magritte-text___tkzIl_4-3-13'}).text.lower()               # Ищем название вакансии
+            experience = p.parent.find("div", attrs = {'class' : 'magritte-tag__label___YHV-o_3-0-22'}).text    # Ищем требуемый опыт
 
             # Поскольку в вакансии могут быть указаны ключевые слова для разных уровней
             # Необходимо пройти по каждому из массивов ключевых слов
